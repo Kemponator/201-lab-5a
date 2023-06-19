@@ -9,8 +9,8 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) {
-  testSum = a + b;
-  console.log(testSum);
+  const total = a + b;
+  return [total, `The sum of ${a} and ${b} is ${total}.`];
 }
 
 // Here is the test for sum(); uncomment it to run it
@@ -28,11 +28,8 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) {
-    testMultiple = a * b
-    if (testMultiply(5,9)[0] === 45 && testMultiply(5,9)[1] === 'The product of 5 and 9 is 45.')
-        console.log('%c TEST FOR multiply() PASSES', 'color: green');
-      } else {
-        console.log('%c TEST FOR multiply() FAILS', 'color: red');
+  const testMultiply = a * b;
+  return [testMultiply, `The product of ${a} and ${b} is ${testMultiply}.`];
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -53,7 +50,17 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) {
-  //eslint-disable-line
+  //const aPlusB = sum(a, b)[0]
+  //const plusC = sum(aPlusB, c)[0]
+
+  const sumTotal = sum(sum(a, b)[0], c)[0];
+  const multiplyTotal = multiply(multiply(a, b)[0], c)[0];
+  return [
+    sumTotal,
+    multiplyTotal,
+    `${a} and ${b} and ${c} sum to ${sumTotal}.`,
+    `The product of ${a} and ${b} and ${c} is ${multiplyTotal}.`,
+  ];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
